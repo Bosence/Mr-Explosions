@@ -1,0 +1,43 @@
+bin\x86\Debug\Content\Sprites\Default.xnb
+bin\x86\Debug\Content\Sprites\White.xnb
+bin\x86\Debug\Content\Sprites\Black.xnb
+bin\x86\Debug\Content\Sprites\Red.xnb
+bin\x86\Debug\Content\Sprites\Green.xnb
+bin\x86\Debug\Content\Sprites\Bomb.xnb
+bin\x86\Debug\Content\Fonts\Default.xnb
+bin\x86\Debug\Content\Audio\Sounds.xgs
+bin\x86\Debug\Content\Audio\WaveBank.xwb
+bin\x86\Debug\Content\Audio\SoundBank.xsb
+bin\x86\Debug\Bomberman.exe
+bin\x86\Debug\Bomberman.pdb
+bin\x86\Debug\Tile Engine.dll
+bin\x86\Debug\Tile Engine.pdb
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\Bomberman.exe
+obj\x86\Debug\Bomberman.pdb
+bin\x86\Release\Content\Sprites\Default.xnb
+bin\x86\Release\Content\Sprites\White.xnb
+bin\x86\Release\Content\Sprites\Black.xnb
+bin\x86\Release\Content\Sprites\Red.xnb
+bin\x86\Release\Content\Sprites\Green.xnb
+bin\x86\Release\Content\Sprites\Bomb.xnb
+bin\x86\Release\Content\Fonts\Default.xnb
+bin\x86\Release\Content\Audio\Sounds.xgs
+bin\x86\Release\Content\Audio\WaveBank.xwb
+bin\x86\Release\Content\Audio\SoundBank.xsb
+bin\x86\Release\Content\Maps\Warehouse.xml
+bin\x86\Release\Content\Bomberman.ico
+bin\x86\Release\Bomberman.exe
+bin\x86\Release\Bomberman.pdb
+bin\x86\Release\Tile Engine.dll
+bin\x86\Release\Tile Engine.pdb
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\Bomberman.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\Bomberman.exe
+obj\x86\Release\Bomberman.pdb
+bin\x86\Debug\Content\Menu\Default.xml
+bin\x86\Debug\Content\Maps\Warehouse.xml
+bin\x86\Debug\Content\Bomberman.ico

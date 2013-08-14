@@ -1,0 +1,120 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    public class Layer : DrawableGameComponent
+    {
+        SpriteBatch spriteBatch;
+        string name;
+        string texturePath;
+        Size spriteSize;
+        int[] map;
+        Size layerSize = new Size(0, 0);
+        SpriteSheet sprites;
+        float alpha = 1f;
+        bool disabled = false;
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public Size LayerSize
+        {
+            get { return layerSize; }
+            set { layerSize = value; }
+        }
+
+        public Texture2D Texture
+        {
+            get { return this.sprites.Texture; }
+            set { this.sprites.Texture = value; }
+        }
+
+        public Size SpriteSize
+        {
+            get { return this.sprites.SpriteSize; }
+            set { this.sprites.SpriteSize = value; }
+        }
+
+        public float Alpha
+        {
+            get { return this.alpha; }
+            set { this.alpha = MathHelper.Clamp(value, 0f, 1f); }
+        }
+
+        public bool Disabled
+        {
+            get { return this.disabled; }
+            set { this.disabled = value; }
+        }
+
+        public Layer(string name, Size layerSize, string texture, Size spriteSize, int[] spriteMap, float alpha, Game game)
+            : base(game)
+        {
+            this.name = name;
+            this.layerSize = layerSize;
+            this.texturePath = texture;
+            this.spriteSize = spriteSize;
+            this.map = (int[])spriteMap.Clone();
+            this.alpha = alpha;
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+
+            this.spriteBatch = (SpriteBatch)this.Game.Services.GetService(typeof(SpriteBatch));
+
+            this.sprites = new SpriteSheet(this.Game.Content.Load<Texture2D>(this.texturePath), this.spriteSize);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+
+            if (this.disabled)
+            {
+                return;
+            }
+
+            int count = 0;
+
+            for (int x = 0; x < this.layerSize.Height; x++)
+            {
+                for (int y = 0; y < this.layerSize.Width; y++)
+                {
+                    int tile = this.map[count++];
+
+                    if (tile < 0)
+                    {
+                        continue;
+                    }
+
+                    Rectangle sprite = this.sprites.GetSprite(tile);
+
+                    spriteBatch.Draw(this.sprites.Texture, new Rectangle((y * this.sprites.SpriteSize.Width), (x * this.sprites.SpriteSize.Height), sprite.Width, sprite.Height), sprite, new Color(new Vector4(1.0f, 1.0f, 1.0f, this.alpha)));
+                }
+            }
+        }
+    }
+}

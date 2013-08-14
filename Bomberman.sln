@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bomberman", "Bomberman\Bomberman.csproj", "{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{828CD4DE-BE42-42BE-B259-741CA31AC42D} = {828CD4DE-BE42-42BE-B259-741CA31AC42D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tile Engine", "Tile Engine\Tile Engine.csproj", "{828CD4DE-BE42-42BE-B259-741CA31AC42D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Debug|x86.ActiveCfg = Debug|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Debug|x86.Build.0 = Debug|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Release|x86.ActiveCfg = Release|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Release|x86.Build.0 = Release|x86
+		{7DF2516B-EA41-4F40-8DD5-33B24865508E}.Debug|x86.ActiveCfg = Debug|x86
+		{7DF2516B-EA41-4F40-8DD5-33B24865508E}.Release|x86.ActiveCfg = Release|x86
+		{828CD4DE-BE42-42BE-B259-741CA31AC42D}.Debug|x86.ActiveCfg = Debug|x86
+		{828CD4DE-BE42-42BE-B259-741CA31AC42D}.Debug|x86.Build.0 = Debug|x86
+		{828CD4DE-BE42-42BE-B259-741CA31AC42D}.Release|x86.ActiveCfg = Release|x86
+		{828CD4DE-BE42-42BE-B259-741CA31AC42D}.Release|x86.Build.0 = Release|x86
+		{FD718C9A-7DCE-432D-9F2E-FFBCBA4FCBE2}.Debug|x86.ActiveCfg = Debug|x86
+		{FD718C9A-7DCE-432D-9F2E-FFBCBA4FCBE2}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

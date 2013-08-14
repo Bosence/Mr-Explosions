@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    public class Bomb : DrawableGameComponent
+    {
+        SpriteBatch spriteBatch;
+        SpriteSheet texture;
+        string texturePath;
+        Size spriteSize;
+        Vector2 location;
+        Map map;        
+
+        public Bomb(string texture, Size spriteSize, Vector2 location, Map map, Game game)
+            : base(game)
+        {
+            this.texturePath = texture;
+            this.spriteSize = spriteSize;
+            this.location = location;
+            this.map = map;
+        }
+
+    public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+
+            this.spriteBatch = (SpriteBatch)this.Game.Services.GetService(typeof(SpriteBatch));
+
+            this.texture = new SpriteSheet(this.Game.Content.Load<Texture2D>(this.texturePath), this.spriteSize);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+
+            Rectangle sprite = this.texture.GetSprite(0);
+            this.spriteBatch.Draw(this.texture.Texture, new Rectangle((int)location.X, (int)location.Y, sprite.Width, sprite.Height), sprite, Color.White);
+        }
+    }
+}

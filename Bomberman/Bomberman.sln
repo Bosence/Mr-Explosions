@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bomberman", "Bomberman.csproj", "{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Debug|x86.ActiveCfg = Debug|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Debug|x86.Build.0 = Debug|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Release|x86.ActiveCfg = Release|x86
+		{52D6135F-6B4A-49AC-9B53-9D84BD82D34E}.Release|x86.Build.0 = Release|x86
+		{7DF2516B-EA41-4F40-8DD5-33B24865508E}.Debug|x86.ActiveCfg = Debug|x86
+		{7DF2516B-EA41-4F40-8DD5-33B24865508E}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,441 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    public enum BombExplosions
+    {
+        bombNormal = 0,
+        fourthExplosionVertical,
+        fourthExplosionUp,
+        blank1,
+        thirdExplosionVertical,
+        thirdExplosionUp,
+        blank2,
+        secondExplosionVertical,
+        secondExplosionUp,
+        blank3,
+        firstExplosionVertical,
+        firstExplosionUp,
+        blank4,//End of first row
+        bombBig,
+        fourthExplosionLeft,
+        fourthExplosionMid,
+        fourthExplosionRight,
+        thirdExplosionLeft,
+        thirdExplosionMid,
+        thirdExplosionRight,
+        secondExplosionLeft,
+        secondExplosionMid,
+        secondExplosionRight,
+        firstExplosionLeft,
+        firstExplosionMid,
+        firstExplosionRight,//End of second row
+        bombSmall,
+        fourthExplosionHorizontal,
+        fourthExplosionDown,
+        blank5,
+        thirdExplosionHorizontal,
+        thirdExplosionDown,
+        blank6,
+        secondExplosionHorizontal,
+        secondExplosionDown,
+        blank7,
+        firstExplosionHorizontal,
+        firstExplosionDown,
+        blank8
+    }
+
+    public class Bomb : DrawableGameComponent
+    {
+
+        SpriteBatch spriteBatch;
+        SpriteSheet spriteSheet;
+        public bool isBombDown = false;
+        int bombTime = 0;
+        int currentTile;
+        bool Explosion = false;
+        Map map;
+        Game parent;
+
+        Size bombLocation;
+
+        Size mapSize;
+        Size tileSize;
+
+
+
+        int bombAni = 1;
+        bool bombUp = true;
+        int bombCounter = 0;
+
+        Size bombArmUp;
+        Size bombArmLeft;
+        Size bombArmDown;
+        Size bombArmRight;
+        Size bombVertUp;
+        Size bombVertDown;
+        Size bombHorLeft;
+        Size bombHorRight;
+
+        public Bomb(Game game, int currentTile, Map map)
+            : base(game)
+        {
+            this.parent = game;
+            this.currentTile = currentTile;
+            this.map = map;
+            this.mapSize = this.map.MapSize;
+            this.tileSize = this.map.SpriteSize;
+
+            this.bombLocation.Width = ((this.currentTile - 1) % mapSize.Width) * tileSize.Width;
+            this.bombLocation.Height = (int)(Math.Floor((float)(currentTile / mapSize.Height)) * tileSize.Height);
+
+            this.bombArmUp.Width = this.bombLocation.Width;
+            this.bombArmUp.Height = this.bombLocation.Height - (tileSize.Height * 2);
+
+            this.bombArmDown.Width = this.bombLocation.Width;
+            this.bombArmDown.Height = this.bombLocation.Height + (tileSize.Height * 2);
+
+            this.bombArmLeft.Width = this.bombLocation.Width - (tileSize.Width * 2);
+            this.bombArmLeft.Height = this.bombLocation.Height;
+
+            this.bombArmRight.Width = this.bombLocation.Width + (tileSize.Width * 2);
+            this.bombArmRight.Height = this.bombLocation.Height;
+
+            this.bombVertUp.Width = this.bombLocation.Width;
+            this.bombVertUp.Height = this.bombLocation.Height - tileSize.Height;
+
+            this.bombVertDown.Width = this.bombLocation.Width;
+            this.bombVertDown.Height = this.bombLocation.Height + tileSize.Height;
+
+            this.bombHorLeft.Width = this.bombLocation.Width - tileSize.Width;
+            this.bombHorLeft.Height = this.bombLocation.Height;
+
+            this.bombHorRight.Width = this.bombLocation.Width + tileSize.Width;
+            this.bombHorRight.Height = this.bombLocation.Height;
+
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+
+            this.spriteBatch = (SpriteBatch)this.Game.Services.GetService(typeof(SpriteBatch));
+            this.spriteSheet = new SpriteSheet(this.parent.Content.Load<Texture2D>(@"Sprites\Bomb"), new Size(44, 44));
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            Rectangle sprite = new Rectangle();
+
+            this.bombTime += gameTime.ElapsedGameTime.Milliseconds;
+            base.Draw(gameTime);
+            {
+                sprite = this.spriteSheet.GetSprite((int)BombExplosions.bombNormal);
+
+                switch (this.bombAni)
+                {
+                    case 1:
+                        sprite = this.spriteSheet.GetSprite((int)BombExplosions.bombBig);
+                        break;
+                    case 2:
+                        sprite = this.spriteSheet.GetSprite((int)BombExplosions.bombNormal);
+                        break;
+                    case 3:
+                        sprite = this.spriteSheet.GetSprite((int)BombExplosions.bombSmall);
+                        break;
+                }
+
+                if (this.bombCounter >= 250)
+                {
+                    if (this.bombUp)
+                    {
+                        this.bombAni++;
+
+                        if (this.bombAni >= 3)
+                        {
+                            this.bombAni = 3;
+                            this.bombUp = false;
+                        }
+                    }
+                    else
+                    {
+                        this.bombAni--;
+
+                        if (this.bombAni <= 1)
+                        {
+                            this.bombAni = 1;
+                            this.bombUp = true;
+                        }
+                    }
+
+                    this.bombCounter = 0;
+                }
+                else
+                {
+                    this.bombCounter += gameTime.ElapsedGameTime.Milliseconds;
+                }
+            }
+            if (this.bombTime > 3000 && bombTime <= 3125)
+            {
+                Explosion = true;
+                sprite = this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionMid);
+
+                if (map.CanWalk(this.currentTile - this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile - (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmUp.Width, (int)this.bombArmUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionUp), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile + (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmDown.Width, (int)this.bombArmDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionDown), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + 1))
+                {
+                    if (map.CanWalk(this.currentTile + 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmRight.Width, (int)this.bombArmRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionRight), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionHorizontal), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile - 1))
+                {
+                    if (map.CanWalk(this.currentTile - 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmLeft.Width, (int)this.bombArmLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionLeft), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.firstExplosionHorizontal), Color.White);
+                    }
+                }
+            }
+            else if (this.bombTime > 3125 && bombTime <= 3250)
+            {
+                Explosion = true;
+                sprite = this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionMid);
+
+                if (map.CanWalk(this.currentTile - this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile - (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmUp.Width, (int)this.bombArmUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionUp), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile + (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmDown.Width, (int)this.bombArmDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionDown), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + 1))
+                {
+                    if (map.CanWalk(this.currentTile + 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmRight.Width, (int)this.bombArmRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionRight), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionHorizontal), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile - 1))
+                {
+                    if (map.CanWalk(this.currentTile - 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmLeft.Width, (int)this.bombArmLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionLeft), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.secondExplosionHorizontal), Color.White);
+                    }
+                }
+            }
+            else if (this.bombTime > 3250 && bombTime <= 3375)
+            {
+                Explosion = true;
+                sprite = this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionMid);
+
+                if (map.CanWalk(this.currentTile - this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile - (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmUp.Width, (int)this.bombArmUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionUp), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile + (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmDown.Width, (int)this.bombArmDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionDown), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + 1))
+                {
+                    if (map.CanWalk(this.currentTile + 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmRight.Width, (int)this.bombArmRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionRight), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionHorizontal), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile - 1))
+                {
+                    if (map.CanWalk(this.currentTile - 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmLeft.Width, (int)this.bombArmLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionLeft), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.thirdExplosionHorizontal), Color.White);
+                    }
+                }
+            }
+            else if (this.bombTime > 3375 && bombTime < 3500)
+            {
+                Explosion = true;
+                sprite = this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionMid);
+
+                if (map.CanWalk(this.currentTile - this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile - (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmUp.Width, (int)this.bombArmUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionUp), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertUp.Width, (int)this.bombVertUp.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + this.map.MapSize.Width))
+                {
+                    if (map.CanWalk(this.currentTile + (this.map.MapSize.Width * 2)))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmDown.Width, (int)this.bombArmDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionDown), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionVertical), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombVertDown.Width, (int)this.bombVertDown.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionVertical), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile + 1))
+                {
+                    if (map.CanWalk(this.currentTile + 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmRight.Width, (int)this.bombArmRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionRight), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorRight.Width, (int)this.bombHorRight.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionHorizontal), Color.White);
+                    }
+                }
+
+                if (map.CanWalk(this.currentTile - 1))
+                {
+                    if (map.CanWalk(this.currentTile - 2))
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombArmLeft.Width, (int)this.bombArmLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionLeft), Color.White);
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionHorizontal), Color.White);
+                    }
+                    else
+                    {
+                        this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle((int)this.bombHorLeft.Width, (int)this.bombHorLeft.Height, sprite.Width, sprite.Height), this.spriteSheet.GetSprite((int)BombExplosions.fourthExplosionHorizontal), Color.White);
+                    }
+                }
+            }
+            else if (this.bombTime >= 3500)
+            {
+                sprite = this.spriteSheet.GetSprite(-1);
+            }
+
+            if (Explosion == false)
+            {
+                this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle(this.bombLocation.Width, this.bombLocation.Height - 8, sprite.Width, sprite.Height), sprite, Color.White);
+            }
+            else
+            {
+                this.spriteBatch.Draw(this.spriteSheet.Texture, new Rectangle(this.bombLocation.Width, this.bombLocation.Height, sprite.Width, sprite.Height), sprite, Color.White);
+                Explosion = false;
+            }
+        }
+    }
+}

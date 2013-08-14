@@ -1,0 +1,14 @@
+bin\x86\Debug\Tile Engine.dll
+bin\x86\Debug\Tile Engine.pdb
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Debug\Tile Engine.dll
+obj\x86\Debug\Tile Engine.pdb
+bin\x86\Release\Tile Engine.dll
+bin\x86\Release\Tile Engine.pdb
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\TileEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+obj\x86\Release\Tile Engine.dll
+obj\x86\Release\Tile Engine.pdb

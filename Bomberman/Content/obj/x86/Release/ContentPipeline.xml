@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Sprites\Default.png</Source>
+      <Name>Sprites\Default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Default.xnb</Output>
+      <Time>2010-02-06T23:12:00+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\White.png</Source>
+      <Name>Sprites\White</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\White.xnb</Output>
+      <Time>2010-02-12T20:41:10+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Black.png</Source>
+      <Name>Sprites\Black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Black.xnb</Output>
+      <Time>2010-02-12T20:39:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Red.png</Source>
+      <Name>Sprites\Red</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Red.xnb</Output>
+      <Time>2010-02-12T20:39:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Green.png</Source>
+      <Name>Sprites\Green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Green.xnb</Output>
+      <Time>2010-02-12T20:39:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Bomb.png</Source>
+      <Name>Sprites\Bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Bomb.xnb</Output>
+      <Time>2010-04-12T10:04:53.797359+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Default.spritefont</Source>
+      <Name>Fonts\Default</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Fonts\Default.xnb</Output>
+      <Time>2010-03-23T11:09:11.3516761+00:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <RootDirectory>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\</RootDirectory>
+      <LoggerRootDirectory>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\</LoggerRootDirectory>
+      <IntermediateDirectory>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2007-11-28T13:08:00+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2007-11-28T13:08:42+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2007-11-28T13:08:30+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v2.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2007-11-28T13:07:44+00:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\2.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2010-03-02T16:43:10.014871+00:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

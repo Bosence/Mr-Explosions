@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    public class CollisionLayer
+    {
+        string name;
+        int[] map;
+        Size layerSize = new Size(0, 0);
+        bool disabled = false;
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public Size LayerSize
+        {
+            get { return layerSize; }
+            set { layerSize = value; }
+        }
+
+        public bool Disabled
+        {
+            get { return this.disabled; }
+            set { this.disabled = value; }
+        }
+
+        public CollisionLayer(string name, Size layerSize, int[] spriteMap)
+        {
+            this.name = name;
+            this.layerSize = layerSize;
+            this.map = (int[])spriteMap.Clone();
+        }
+
+        public bool CanWalk(int id)
+        {
+            try
+            {
+                return (this.map[id - 1] == -1);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}

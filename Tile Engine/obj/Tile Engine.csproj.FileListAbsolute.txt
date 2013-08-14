@@ -1,0 +1,42 @@
+C:\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.dll
+C:\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.pdb
+C:\Bomberman\Tile Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Tile Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Tile Engine\obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.dll
+C:\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.pdb
+C:\Bomberman\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.dll
+C:\Bomberman\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.pdb
+C:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.dll
+C:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.pdb
+K:\Bomberman\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.dll
+K:\Bomberman\Bomberman\Tile Engine\bin\x86\Debug\Tile Engine.pdb
+K:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.dll
+K:\Bomberman\Bomberman\Tile Engine\obj\x86\Debug\Tile Engine.pdb
+I:\Engine\Tile Engine\bin\x86\Debug\Tile Engine.dll
+I:\Engine\Tile Engine\bin\x86\Debug\Tile Engine.pdb
+I:\Engine\Tile Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Engine\Tile Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+I:\Engine\Tile Engine\obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+I:\Engine\Tile Engine\obj\x86\Debug\Tile Engine.dll
+I:\Engine\Tile Engine\obj\x86\Debug\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\bin\x86\Debug\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\bin\x86\Debug\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Debug\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Debug\TileEngine.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Debug\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Debug\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\bin\x86\Release\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\bin\x86\Release\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Release\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Release\TileEngine.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Release\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\obj\x86\Release\Tile Engine.pdb

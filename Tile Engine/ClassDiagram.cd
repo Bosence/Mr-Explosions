@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="TileEngine.Audio">
+    <Position X="2.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Audio.cs</FileName>
+      <HashCode>AAQgAAAAAAAAAQBAAAgAAEAIAAAEAAAAoAAAAgAAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileEngine.Character">
+    <Position X="2.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Character.cs</FileName>
+      <HashCode>AAQgEEAAAAAIIwAAAACAAAACAACEAgAEARACAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileEngine.CollisionLayer">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CollisionLayer.cs</FileName>
+      <HashCode>AAAIEAAAAIAAAICAAACAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="TileEngine.FpsCounter">
+    <Position X="4.75" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>FpsCounter.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAAAEBAAAQAAAAAAAAQJAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileEngine.Layer">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Layer.cs</FileName>
+      <HashCode>AAQgEEAAAIAAA4CAAACCAAQAAAAEABAAAAISAACAAAQ=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="TileEngine.Map">
+    <Position X="4.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>Map.cs</FileName>
+      <HashCode>AAQIgEAAAAAAAxAAAABCAAQAAAAGAAAAggACBACAAAQ=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="TileEngine.SpriteSheet">
+    <Position X="0.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>SpriteSheet.cs</FileName>
+      <HashCode>AAAAAAAAAAAAEAAAAAACAAAAABAAAgAAAAIAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="TileEngine.Size">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Engine.cs</FileName>
+      <HashCode>AAAAAAAABAAAAAQAQAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="TileEngine.CharacterDirection">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Character.cs</FileName>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TileEngine.CharacterState">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Character.cs</FileName>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

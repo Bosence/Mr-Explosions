@@ -1,0 +1,4 @@
+obj\x86\Debug\ResolveAssemblyReference.cache
+obj\x86\Debug\Audio\Sounds.xml
+obj\x86\Release\ResolveAssemblyReference.cache
+obj\x86\Release\Audio\Sounds.xml

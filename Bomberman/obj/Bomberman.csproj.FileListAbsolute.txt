@@ -1,0 +1,120 @@
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Default.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\White.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Fonts\Default.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\Sounds.xgs
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\WaveBank.xwb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\SoundBank.xsb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Maps\Default.xml
+C:\Bomberman\Bomberman\bin\x86\Debug\Bomberman.exe
+C:\Bomberman\Bomberman\bin\x86\Debug\Bomberman.pdb
+C:\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.dll
+C:\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.pdb
+C:\Bomberman\Bomberman\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Bomberman\obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Bomberman\obj\x86\Debug\Bomberman.exe
+C:\Bomberman\Bomberman\obj\x86\Debug\Bomberman.pdb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Black.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Green.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Red.xnb
+C:\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Bomb.xnb
+C:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.exe
+C:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.pdb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Default.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\White.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Black.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Red.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Green.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Bomb.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Fonts\Default.xnb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\Sounds.xgs
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\WaveBank.xwb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\SoundBank.xsb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Maps\Default.xml
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Bomberman.exe
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Bomberman.pdb
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.dll
+C:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.pdb
+C:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Default.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\White.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Black.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Red.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Green.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Sprites\Bomb.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Fonts\Default.xnb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\Sounds.xgs
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\WaveBank.xwb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Audio\SoundBank.xsb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Content\Maps\Default.xml
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Bomberman.exe
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Bomberman.pdb
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.dll
+K:\Bomberman\Bomberman\Bomberman\bin\x86\Debug\Tile Engine.pdb
+K:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+K:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.exe
+K:\Bomberman\Bomberman\Bomberman\obj\x86\Debug\Bomberman.pdb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Default.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\White.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Black.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Red.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Green.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Bomb.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Fonts\Default.xnb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Audio\Sounds.xgs
+I:\Engine\Bomberman\bin\x86\Debug\Content\Audio\WaveBank.xwb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Audio\SoundBank.xsb
+I:\Engine\Bomberman\bin\x86\Debug\Content\Maps\Default.xml
+I:\Engine\Bomberman\bin\x86\Debug\Bomberman.exe
+I:\Engine\Bomberman\bin\x86\Debug\Bomberman.pdb
+I:\Engine\Bomberman\bin\x86\Debug\Tile Engine.dll
+I:\Engine\Bomberman\bin\x86\Debug\Tile Engine.pdb
+I:\Engine\Bomberman\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Engine\Bomberman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+I:\Engine\Bomberman\obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+I:\Engine\Bomberman\obj\x86\Debug\Bomberman.exe
+I:\Engine\Bomberman\obj\x86\Debug\Bomberman.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Default.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\White.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Black.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Red.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Green.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Sprites\Bomb.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Fonts\Default.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Audio\Sounds.xgs
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Audio\WaveBank.xwb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Audio\SoundBank.xsb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Content\Maps\Default.xml
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Bomberman.exe
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Bomberman.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Debug\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Debug\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Debug\Bomberman.obj.x86.Debug.Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Debug\Bomberman.exe
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Debug\Bomberman.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Default.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\White.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Black.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Red.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Green.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Sprites\Bomb.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Fonts\Default.xnb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Audio\Sounds.xgs
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Audio\WaveBank.xwb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Audio\SoundBank.xsb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Content\Maps\Default.xml
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Bomberman.exe
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Bomberman.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Tile Engine.dll
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\bin\x86\Release\Tile Engine.pdb
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Release\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Release\Bomberman.obj.x86.Release.Microsoft.Xna.Framework.RuntimeProfile.txt
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Release\Bomberman.exe
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\obj\x86\Release\Bomberman.pdb

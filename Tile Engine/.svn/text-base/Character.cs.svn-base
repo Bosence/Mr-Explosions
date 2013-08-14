@@ -1,0 +1,289 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    internal enum CharacterDirection
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+
+    internal enum CharacterState
+    {
+        Standing,
+        StepOne,
+        StepTwo
+    }
+
+    public struct Input
+    {
+        Keys up;
+        Keys down;
+        Keys left;
+        Keys right;
+        Keys fire;
+
+        public Keys Up
+        {
+            get { return up; }
+        }
+
+        public Keys Down
+        {
+            get { return down; }
+        }
+
+        public Keys Left
+        {
+            get { return left; }
+        }
+
+        public Keys Right
+        {
+            get { return right; }
+        }
+
+        public Keys Fire
+        {
+            get { return fire; }
+        }
+
+        public Input(Keys up, Keys down, Keys left, Keys right, Keys fire)
+        {
+            this.up = up;
+            this.down = down;
+            this.left = left;
+            this.right = right;
+            this.fire = fire;
+        }
+    }
+
+    public class Character : DrawableGameComponent
+    {
+        SpriteBatch spriteBatch;
+        SpriteSheet texture;
+        string texturePath;
+        Size spriteSize;
+        Vector2 location;
+        Input keys;
+        CharacterDirection direction = CharacterDirection.Down;
+        CharacterState state = CharacterState.Standing;
+        float moveTime;
+        float fps = 30f;
+        bool moving = false;
+        int movingStage = 0;
+        bool leg = true;
+        Map map;
+        int currentTile;
+        Bomb bomb;
+
+        public Character(string texture, Size spriteSize, Vector2 location, int currentTile, Input input, Map map, Game game)
+            : base(game)
+        {
+            this.texturePath = texture;
+            this.spriteSize = spriteSize;
+            this.location = location;
+            this.keys = input;
+            this.map = map;
+            this.currentTile = currentTile;
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+
+            this.spriteBatch = (SpriteBatch)this.Game.Services.GetService(typeof(SpriteBatch));
+
+            this.texture = new SpriteSheet(this.Game.Content.Load<Texture2D>(this.texturePath), this.spriteSize);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            KeyboardState state = Keyboard.GetState();
+
+            moveTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (!this.moving)
+            {
+                if (state.IsKeyDown(this.keys.Fire))
+                {
+                    if (this.bomb == null)
+                    {
+                        this.bomb = new Bomb(@"Sprites\Bomb", new Size(44, 44), this.location, this.map, this.Game);
+                        this.Game.Components.Add(this.bomb);
+                    }
+                }
+
+                bool keyPressed = false;
+
+                if (state.IsKeyDown(this.keys.Up))
+                {
+                    this.direction = CharacterDirection.Up;
+                    keyPressed = true;
+                }
+                else if (state.IsKeyDown(this.keys.Down))
+                {
+                    this.direction = CharacterDirection.Down;
+                    keyPressed = true;
+                }
+                else if (state.IsKeyDown(this.keys.Left))
+                {
+                    this.direction = CharacterDirection.Left;
+                    keyPressed = true;
+                }
+                else if (state.IsKeyDown(this.keys.Right))
+                {
+                    this.direction = CharacterDirection.Right;
+                    keyPressed = true;
+                }
+
+                if (keyPressed)
+                {
+                    this.moving = true;
+                    this.leg = !this.leg;
+                }
+            }
+            else
+            {
+                if (this.movingStage < 10)
+                {
+                    if (moveTime > 1000f / fps)
+                    {
+                        moveTime = 0f;
+
+                        if (this.movingStage == 0)
+                        {
+                            if (this.leg)
+                            {
+                                this.state = CharacterState.StepOne;
+                            }
+                            else
+                            {
+                                this.state = CharacterState.StepTwo;
+                            }
+                        }
+                        else if (this.movingStage == 5)
+                        {
+                            this.state = CharacterState.Standing;
+                        }
+
+                        switch (this.direction)
+                        {
+                            case CharacterDirection.Up:
+                                if (map.CanWalk(currentTile - map.MapSize.Width))
+                                {
+                                    this.location.Y -= 4.4f;
+
+                                    if (this.movingStage == 9)
+                                    {
+                                        currentTile -= map.MapSize.Width;
+                                    }
+                                }
+
+                                break;
+                            case CharacterDirection.Down:
+                                if (map.CanWalk(currentTile + map.MapSize.Width))
+                                {
+                                    this.location.Y += 4.4f;
+
+                                    if (this.movingStage == 9)
+                                    {
+                                        currentTile += map.MapSize.Width;
+                                    }
+                                }
+
+                                break;
+                            case CharacterDirection.Left:
+                                if (map.CanWalk(currentTile - 1))
+                                {
+                                    this.location.X -= 4.4f;
+
+                                    if (this.movingStage == 9)
+                                    {
+                                        currentTile -= 1;
+                                    }
+                                }
+
+                                break;
+                            case CharacterDirection.Right:
+                                if (map.CanWalk(currentTile + 1))
+                                {
+                                    this.location.X += 4.4f;
+
+                                    if (this.movingStage == 9)
+                                    {
+                                        currentTile += 1;
+                                    }
+                                }
+
+                                break;
+                        }
+
+                        this.movingStage++;
+                    }
+                }
+                else
+                {
+                    this.moving = false;
+                    this.movingStage = 0;
+                }
+            }
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+
+            int direction = 0, state = 0;
+
+            switch (this.direction)
+            {
+                case CharacterDirection.Up:
+                    direction = 0;
+                    break;
+                case CharacterDirection.Down:
+                    direction = 3;
+                    break;
+                case CharacterDirection.Left:
+                    direction = 6;
+                    break;
+                case CharacterDirection.Right:
+                    direction = 9;
+                    break;
+            }
+
+            switch (this.state)
+            {
+                case CharacterState.Standing:
+                    state = 0;
+                    break;
+                case CharacterState.StepOne:
+                    state = 1;
+                    break;
+                case CharacterState.StepTwo:
+                    state = 2;
+                    break;
+            }
+
+            Rectangle sprite = this.texture.GetSprite(direction + state);
+            this.spriteBatch.Draw(this.texture.Texture, new Rectangle((int)this.location.X, (int)this.location.Y - ((this.texture.SpriteSize.Height - 44) + 8), sprite.Width, sprite.Height), sprite, Color.White);
+        }
+    }
+}

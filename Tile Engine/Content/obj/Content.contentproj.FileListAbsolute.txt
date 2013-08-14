@@ -1,0 +1,6 @@
+C:\Bomberman\Tile Engine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\Tile Engine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\Bomberman\Bomberman\Tile Engine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Engine\Tile Engine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Tile Engine\Content\obj\x86\Release\ResolveAssemblyReference.cache

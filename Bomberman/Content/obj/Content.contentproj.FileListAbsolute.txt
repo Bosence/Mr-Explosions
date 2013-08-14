@@ -1,0 +1,12 @@
+C:\Bomberman\Bomberman\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\Content\obj\x86\Debug\Audio\Sounds.xml
+C:\Bomberman\Bomberman\Bomberman\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Bomberman\Bomberman\Bomberman\Content\obj\x86\Debug\Audio\Sounds.xml
+K:\Bomberman\Bomberman\Bomberman\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\Bomberman\Bomberman\Bomberman\Content\obj\x86\Debug\Audio\Sounds.xml
+I:\Engine\Bomberman\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Engine\Bomberman\Content\obj\x86\Debug\Audio\Sounds.xml
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\obj\x86\Debug\Audio\Sounds.xml
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\obj\x86\Release\ResolveAssemblyReference.cache
+\\gondor-student\Student User Data$\32199333\Engine\Bomberman\Content\obj\x86\Release\Audio\Sounds.xml

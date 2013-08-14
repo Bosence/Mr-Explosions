@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<menucollection>
+  <menu id="1" name="Mr Explotions">
+    <menuitem id="start" action="2">Start</menuitem>
+    <menuitem id="options" action="">Options</menuitem>
+    <menuitem id="credits" action="credits">Credits</menuitem>
+    <menuitem id="quit" action="quit">Quit</menuitem>
+  </menu>
+
+  <menu id="2" name="Pick Players">
+    <menuitem id="2" action="3">2 players</menuitem>
+    <menuitem id="3" action="3">3 players</menuitem>
+    <menuitem id="4" action="3">4 players</menuitem>
+    <menuitem id="back-players" action="1">Back</menuitem>
+  </menu>
+
+  <menu id="3" name="Pick Map">
+    <menuitem id="map-default" action="startGame">Warehouse</menuitem>
+    <menuitem id="back-map" action="2">Back</menuitem>
+  </menu>
+</menucollection>

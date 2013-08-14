@@ -1,0 +1,185 @@
+using System;
+using System.IO;
+using System.Xml;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.Content;
+
+namespace TileEngine
+{
+    public class Map : DrawableGameComponent
+    {
+        SpriteBatch spriteBatch;
+        string name;
+        Size mapSize = new Size(0, 0);
+        Size spriteSize = new Size(0, 0);
+        Dictionary<string, Layer> layers = new Dictionary<string, Layer>();
+        Dictionary<string, CollisionLayer> collisions = new Dictionary<string, CollisionLayer>();
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public Size MapSize
+        {
+            get { return this.mapSize; }
+        }
+
+        public Size SpriteSize
+        {
+            get { return this.spriteSize; }
+        }
+
+        public Map(string mapFile, Game game)
+            : base(game)
+        {
+            mapFile = this.Game.Content.RootDirectory + @"\" + mapFile;
+
+            if (!File.Exists(mapFile))
+            {
+                throw new IOException("Cannot find file " + mapFile);
+            }
+
+            XmlTextReader xmlReader = null;
+            XmlDocument xmlDocument;
+
+            try
+            {
+                xmlReader = new XmlTextReader(mapFile);
+
+                xmlDocument = new XmlDocument();
+                xmlDocument.Load(xmlReader);
+
+                this.name = xmlDocument.SelectSingleNode("/map").Attributes["name"].InnerText;
+
+                XmlNode mapSize = xmlDocument.SelectSingleNode("map/mapsize");
+                this.mapSize = new Size(int.Parse(mapSize.Attributes["x"].InnerText), int.Parse(mapSize.Attributes["y"].InnerText));
+
+                XmlNode spriteSize = xmlDocument.SelectSingleNode("map/spritesize");
+                this.spriteSize = new Size(int.Parse(spriteSize.Attributes["x"].InnerText), int.Parse(spriteSize.Attributes["y"].InnerText));
+
+
+                XmlNodeList layers = xmlDocument.GetElementsByTagName("layer");
+
+                for (int i = 0; i < layers.Count; i++)
+                {
+                    XmlNodeList children = layers[i].ChildNodes;
+                    XmlAttributeCollection attribs = layers[i].Attributes;
+
+                    string name = attribs["name"].InnerText;
+                    string type = attribs["type"].InnerText;
+
+                    string sprite = null;
+                    float alpha = 1.0f;
+                    int[] data = new int[] { -1 };
+
+                    for (int n = 0; n < children.Count; n++)
+                    {
+                        switch (children[n].Name)
+                        {
+                            case "sprite":
+                                sprite = @"Sprites\" + children[n].InnerText;
+                                break;
+                            case "alpha":
+                                alpha = MathHelper.Clamp(float.Parse(children[n].InnerText), 0.0f, 1.0f);
+                                break;
+                            case "data":
+                                data = Array.ConvertAll<string, int>(children[n].InnerText.Trim().Split(' '), Convert.ToInt32);
+                                break;
+                        }
+                    }
+
+                    if (type == "Texture")
+                    {
+                        this.layers.Add(name, new Layer(name, this.mapSize, sprite, this.spriteSize, data, alpha, this.Game));
+                        this.Game.Components.Add(this.layers[name]);
+                    }
+                    else if (type == "Collision")
+                    {
+                        this.collisions.Add(name, new CollisionLayer(name, this.mapSize, data));
+                    }
+                    else
+                    {
+                        throw new Exception("Unknown layer type: " + type);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (xmlReader != null)
+                {
+                    xmlReader.Close();
+                }
+            }
+        }
+
+        public void AddLayer(string key, Layer layer)
+        {
+            this.layers.Add(key, layer);
+        }
+
+        public void RemoveLayer(string key)
+        {
+            this.layers.Remove(key);
+        }
+
+        public void EnableLayer(string key)
+        {
+            this.layers[key].Disabled = false;
+        }
+
+        public void DisableLayer(string key)
+        {
+            this.layers[key].Disabled = true;
+        }
+
+        public bool CanWalk(int id)
+        {
+            bool canWalk = true;
+
+            foreach (KeyValuePair<string, CollisionLayer> collision in collisions)
+            {
+                if (!collision.Value.CanWalk(id))
+                {
+                    canWalk = false;
+                    break;
+                }
+            }
+
+            return canWalk;
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+
+            this.spriteBatch = (SpriteBatch)this.Game.Services.GetService(typeof(SpriteBatch));
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+        }
+    }
+}
